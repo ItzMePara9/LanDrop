@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0f14" />
+    <title>LAN Drop</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230b0f14'/%3E%3Cpath d='M32 58l18-18 18 18' stroke='%236ee7b7' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19h.01" />
+            <path d="M8.5 15.5a5 5 0 0 1 7 0" />
+            <path d="M5 12a10 10 0 0 1 14 0" />
+            <path d="M2 8.5a15 15 0 0 1 20 0" />
+          </svg>
+        </span>
+        <h1>LAN Drop</h1>
+      </div>
+
+      <label class="me">
+        <span>You are</span>
+        <input id="myName" type="text" maxlength="40" spellcheck="false" autocomplete="off" />
+      </label>
+    </header>
+
+    <main class="layout">
+      <section class="panel peers-panel">
+        <div class="panel-head">
+          <h2>Nearby</h2>
+          <span id="onlineCount" class="pill">0 online</span>
+        </div>
+        <div id="peerGrid" class="grid"></div>
+        <div id="emptyState" class="empty">
+          <div class="radar" aria-hidden="true"><span></span></div>
+          <p>Looking for other devices…</p>
+          <p class="muted">Open the address in the side panel on your phone or another PC.</p>
+        </div>
+      </section>
+
+      <aside class="panel join-panel">
+        <h2>Add a device</h2>
+        <div class="qr-wrap">
+          <img id="qr" alt="QR code with this device's address" />
+        </div>
+        <code id="joinUrl">…</code>
+        <p class="muted">Same Wi-Fi. Scan or type the address.</p>
+        <div id="modeBadge" class="badge">checking mode…</div>
+      </aside>
+
+      <section class="panel transfers-panel">
+        <div class="panel-head">
+          <h2>Transfers</h2>
+          <button id="clearDone" class="ghost" type="button">Clear finished</button>
+        </div>
+        <div id="transferList" class="transfers"></div>
+        <p id="noTransfers" class="muted small">Drag a file onto a device, or hit “Send files”.</p>
+      </section>
+    </main>
+
+    <div id="toasts" class="toasts" aria-live="polite"></div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
